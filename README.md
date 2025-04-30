@@ -1,4 +1,4 @@
-# the Lumen kernel
+# Lumen
 
-# Info
+## Info
 the makefile needs the x86_64 cross-compiler (gcc + binutils) to be installed in the lumen/tools directory
