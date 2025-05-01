@@ -34,5 +34,4 @@ int memcmp (
     size_t n // size
 );
 void hcf(void);
-
 #endif

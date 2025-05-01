@@ -1,5 +1,7 @@
 #include <stddef.h>
 #include <stdint.h>
+
+#include "util.h"
 void *memcpy (
     void *dest,
     const void *src,
