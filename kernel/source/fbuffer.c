@@ -43,16 +43,16 @@ void kprintc(char c) {
   if (ft_ctx) flanterm_write(ft_ctx, &c, 1);
 }
 
-void kprinti(int value, int base) {
-  char str[32];
-  char temp[32];
+void kprinti(uint64_t value, int base) {
+  char str[100];
+  char temp[100];
   const char *digits = "0123456789ABCDEF";
   int i = 0;
   if (value == 0) {
     str[0] = '0';
     str[1] = '\0';
   } else {
-    while (value && i < 31) {
+    while (value && i < 99) {
       temp[i++] = digits[value % base];
       value /= base;
     }

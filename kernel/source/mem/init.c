@@ -1,6 +1,7 @@
 #include <stddef.h>
 
 #include "../limine.h"
+#include "../fbuffer.h"
 
 __attribute__((used, section(".limine_requests")))
 static volatile struct limine_memmap_request memmap_request = {
@@ -19,6 +20,13 @@ int init_mem() {
     uint64_t base = memmap_entry->base;
     uint64_t length = memmap_entry-> length;
     uint64_t type = memmap_entry->type;
-
+    switch (type) {
+      case 0:
+        kprintf("Memory page %d | base : %X | length : %d | usable\n",
+        i+1, base, length);
+        break;
+      default:
+        break;
+    }
   }
 }

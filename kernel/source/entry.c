@@ -7,7 +7,9 @@
 #include "util.h"
 #include "fbuffer.h"
 
-#include "mem/init.h"
+#include "mem/init.h" // we will use that later
+
+#include "gdt/gdt.h"
 
 #include "flanterm/flanterm.h"
 #include "flanterm/backends/fb.h"
@@ -38,9 +40,7 @@ void kmain(void)
     default:
       break;
   }
-  kprintf("Hello world !\n");
-  kprintf("printing 145 in dec : %d\n", 145);
-  kprintf("printing 145 in hex : %X\n", 145);
+  init_gdt();
   // hang
   hcf();
 }

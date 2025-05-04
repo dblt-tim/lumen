@@ -2,6 +2,8 @@
 #include <stdint.h>
 
 #include "util.h"
+#include "fbuffer.h"
+
 void *memcpy (
     void *dest,
     const void *src,
@@ -63,3 +65,18 @@ void hcf(void) {
         asm ("hlt");
     }
 }
+
+void klog(int type, char *msg) {
+  switch (type) {
+    case 0:
+      kprintf("[ INFO ] : %s\n", msg);
+      break;
+    case 1:
+      kprintf("[ ERROR ] : %s\n", msg);
+      break;
+    default:
+      kprintf("[ ERROR ] : klog type %d unknown.\n", type);
+      break;
+  }
+}
+

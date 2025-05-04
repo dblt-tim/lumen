@@ -76,7 +76,7 @@ obj/%.S.o: source/%.S
 	mkdir -p "$$(dirname $@)"
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
-obj/%.asm.o: src/%.asm
+obj/%.asm.o: source/%.asm
 	mkdir -p "$$(dirname $@)"
 	nasm $(NASMFLAGS) $< -o $@
 

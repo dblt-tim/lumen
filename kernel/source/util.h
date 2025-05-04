@@ -34,4 +34,10 @@ int memcmp (
     size_t n // size
 );
 void hcf(void);
+
+/// klog function
+// types :
+// - 0 : info
+// - 1 : error
+void klog(int type, char* msg);
 #endif
