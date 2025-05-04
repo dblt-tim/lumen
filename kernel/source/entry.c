@@ -11,7 +11,9 @@
 #include "mem/init.h" // we will use that later
 
 #include "gdt/gdt.h"
-#include "idt/idt.h"
+
+#include "ints/idt.h"
+#include "ints/handle.h"
 
 #include "flanterm/flanterm.h"
 #include "flanterm/backends/fb.h"
