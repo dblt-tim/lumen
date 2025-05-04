@@ -2,7 +2,8 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
-#include <limine.h>
+
+#include "limine.h"
 
 #include "util.h"
 #include "fbuffer.h"
@@ -10,6 +11,7 @@
 #include "mem/init.h" // we will use that later
 
 #include "gdt/gdt.h"
+#include "idt/idt.h"
 
 #include "flanterm/flanterm.h"
 #include "flanterm/backends/fb.h"
@@ -40,7 +42,9 @@ void kmain(void)
     default:
       break;
   }
+
   init_gdt();
+  init_idt();
   // hang
   hcf();
 }
