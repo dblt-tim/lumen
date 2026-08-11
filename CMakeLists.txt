@@ -28,7 +28,13 @@ FetchContent_Declare(limine_protocol
 )
 FetchContent_MakeAvailable(limine_protocol)
 
-file(GLOB_RECURSE K_C_SRCS kernel/source/*.c)
+FetchContent_Declare(flanterm
+  GIT_REPOSITORY https://github.com/Mintsuki/Flanterm
+  GIT_TAG trunk
+)
+FetchContent_MakeAvailable(flanterm)
+
+file(GLOB_RECURSE K_C_SRCS kernel/source/*.c ${flanterm_SOURCE_DIR}/src/*.c)
 file(GLOB_RECURSE K_ASM_SRCS kernel/source/*.s)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
@@ -55,7 +61,7 @@ target_link_options(kernel.elf PRIVATE
   -static
   -no-pie
 )
-target_include_directories(kernel.elf PRIVATE ${limine_protocol_SOURCE_DIR}/include)
+target_include_directories(kernel.elf PRIVATE ${limine_protocol_SOURCE_DIR}/include ${flanterm_SOURCE_DIR}/src)
 
 set(ISO_ROOT ${CMAKE_BINARY_DIR}/iso_root)
 
